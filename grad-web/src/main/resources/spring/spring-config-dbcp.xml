@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="connectionProperties"
+                  value="connectTimeout=5000;socketTimeout=5000"/>
+        <!--等待获取连接池连接的时间，不要太大，暂时设置1500ms-->
+        <property name="maxWait" value="1500"/>
+        <!--大于0 ，进行连接空闲时间判断，或为0，对空闲的连接不进行验证 -->
+        <property name="minEvictableIdleTimeMillis" value="60000"/>
+        <!--失效检查线程运行时间间隔，如果小于等于0，不会启动检查线程 -->
+        <property name="timeBetweenEvictionRunsMillis" value="360000"/>
+    </bean>
+
+</beans>
