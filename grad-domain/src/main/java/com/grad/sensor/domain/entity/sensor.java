@@ -5,17 +5,18 @@ import java.util.Date;
 /**
  * 传感器表对应实体类
  */
-public class sensor {
+public class Sensor {
 
     private int id; // 主键id
     private String sensorName;  // 传感器型号
     private String sensorType;  // 检测数据类型
     private String sensorIP;    // 传感器IP地址 xx.xx.xx.xx.xx
-    private Date createdDate;   // 记录创建时间
-    private Date modifyDate;    // 记录修改时间
     private int thresMax;   // 最大阈值
     private int thresMin;   // 最小阈值
     private String managers;    // 监控人 xx,xx,xx …… 员工号
+    private Date createdDate;   // 记录创建时间
+    private Date modifiedDate;    // 记录修改时间
+    private int status; // 记录状态 1：正常 2：删除 默认1
 
     public int getId() {
         return id;
@@ -49,22 +50,6 @@ public class sensor {
         this.sensorIP = sensorIP;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getModifyDate() {
-        return modifyDate;
-    }
-
-    public void setModifyDate(Date modifyDate) {
-        this.modifyDate = modifyDate;
-    }
-
     public int getThresMax() {
         return thresMax;
     }
@@ -89,18 +74,43 @@ public class sensor {
         this.managers = managers;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "sensor{" +
+        return "Sensor{" +
                 "id=" + id +
                 ", sensorName='" + sensorName + '\'' +
                 ", sensorType='" + sensorType + '\'' +
                 ", sensorIP='" + sensorIP + '\'' +
-                ", createdDate=" + createdDate +
-                ", modifyDate=" + modifyDate +
                 ", thresMax=" + thresMax +
                 ", thresMin=" + thresMin +
                 ", managers='" + managers + '\'' +
+                ", createdDate=" + createdDate +
+                ", modifiedDate=" + modifiedDate +
+                ", status=" + status +
                 '}';
     }
 }
